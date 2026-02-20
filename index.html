@@ -1,569 +1,122 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>星耀閣｜高雄老屋翻修保障專家・基礎工程規劃</title>
-  <meta name="description" content="星耀閣企業行提供高雄老屋翻修之水電管路重整、防水與浴室翻修、整合型統包規劃與權益保障協議，讓翻修透明、正規、不話術。" />
-  <meta name="theme-color" content="#071a19" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>星耀閣｜高雄老屋翻修保障專家</title>
 
-  <!-- 字體 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body{
+  margin:0;
+  font-family:"Noto Sans TC",sans-serif;
+  background:#071a19;
+  color:#e9fbf8;
+}
 
-  <style>
-    :root{
-      --deep:#071a19; --gold:#d4a373; --gold2:#b97a4b; --mint:#7fb9b2;
-      --ink:#e9fbf8; --border:rgba(255,255,255,.15);
-      --shadow: 0 18px 40px rgba(0,0,0,.55);
-    }
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family:"Noto Sans TC","PingFang TC",system-ui,-apple-system,"Segoe UI",sans-serif;
-      background:
-        radial-gradient(1200px 700px at 10% -10%, rgba(127,185,178,.18), transparent 60%),
-        radial-gradient(900px 600px at 110% 10%, rgba(212,163,115,.16), transparent 55%),
-        var(--deep);
-      color:var(--ink);
-      line-height:1.7;
-    }
-    .container{ max-width:1100px; margin:0 auto; padding:0 24px; }
+.container{max-width:1100px;margin:auto;padding:0 24px}
 
-    /* Nav */
-    .nav{
-      position:sticky; top:0; z-index:1000;
-      background:rgba(7,26,25,.86);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--border);
-      padding:14px 0;
-    }
-    .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    .brand{ font-weight:900; color:var(--mint); letter-spacing:.5px; }
-    .nav-line{ font-weight:900; color:var(--gold); font-size:14px; white-space:nowrap; }
+/* ===== Google 信任條 ===== */
 
-    /* Hero */
-    .hero{ padding:86px 0 56px; text-align:center; }
-    .hero h1{ font-size:clamp(28px, 5vw, 48px); line-height:1.25; margin:0 0 18px; }
-    .highlight{
-      color:var(--gold);
-      background:linear-gradient(transparent 70%, rgba(212,163,115,.22) 0);
-      padding:0 .18em; border-radius:8px;
-    }
-    .hero p{ max-width:860px; margin:0 auto 30px; opacity:.86; font-size:1.05rem; }
+.rating-row{
+  display:flex;
+  justify-content:center;
+  margin:30px 0 40px;
+}
 
-    /* 呼吸燈 CTA */
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      color:#000; text-decoration:none; font-weight:900;
-      padding:18px 46px; border-radius:999px;
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      box-shadow: 0 10px 22px rgba(212,163,115,.25);
-      position:relative;
-      transform: translateZ(0);
-      transition: transform .18s ease;
-    }
-    .btn:hover{ transform: scale(1.03); }
-    .btn:active{ transform: scale(0.99); }
-    .btn.breath::before{
-      content:"";
-      position:absolute; inset:-10px;
-      border-radius:999px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(212,163,115,.40), transparent 60%),
-        radial-gradient(circle at 70% 70%, rgba(127,185,178,.22), transparent 55%);
-      filter: blur(6px);
-      opacity:.65;
-      animation: breathe 2.2s ease-in-out infinite;
-      z-index:-1;
-    }
-    @keyframes breathe{
-      0%{ transform: scale(.96); opacity:.45; }
-      50%{ transform: scale(1.05); opacity:.85; }
-      100%{ transform: scale(.96); opacity:.45; }
-    }
+.rating-card{
+  width:min(900px,100%);
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  box-shadow:
+    0 12px 26px rgba(0,0,0,.45),
+    inset 0 0 20px rgba(255,255,255,.05);
+  padding:18px 30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
 
-    /* Section title */
-    .section-title{ text-align:center; margin:78px 0 36px; }
-    .section-title h2{ margin:0 0 10px; font-size:2rem; color:var(--mint); }
-    .section-title p{ margin:0; opacity:.8; }
+/* 微光效果 */
+.rating-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(212,163,115,.25), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(127,185,178,.18), transparent 55%);
+  filter:blur(20px);
+  opacity:.5;
+  animation:ratingGlow 3s ease-in-out infinite;
+}
 
-    /* 工程實照圖庫 */
-    .gallery{
-      margin-top: 10px;
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-    .shot{
-      grid-column: span 6;
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      cursor: zoom-in;
-      transition: transform .18s ease, border-color .18s ease;
-    }
-    .shot:hover{ transform: translateY(-2px); border-color: rgba(212,163,115,.55); }
-    .shot img{
-      width:100%; height: 260px;
-      object-fit: cover;
-      display:block;
-      filter: saturate(1.02) contrast(1.02);
-    }
-    .shot .cap{ padding: 14px 16px 16px; }
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      font-weight:900; color: var(--gold);
-      letter-spacing:.5px;
-      margin-bottom:6px;
-    }
-    .cap p{ margin:0; opacity:.85; font-size:.95rem; }
+@keyframes ratingGlow{
+  0%{transform:scale(.95);opacity:.3}
+  50%{transform:scale(1.05);opacity:.8}
+  100%{transform:scale(.95);opacity:.3}
+}
 
-    /* Guarantee */
-    .guarantee{
-      margin:62px 0;
-      padding:40px;
-      border-radius:30px;
-      border:2px solid var(--gold);
-      background: linear-gradient(145deg, rgba(212,163,115,.14), transparent 55%);
-    }
-    .guarantee h2{ margin:0 0 18px; text-align:center; color:var(--gold); }
+.rating-badge{
+  position:relative;
+  z-index:1;
+  max-height:140px;
+  width:auto;
+}
 
-    /* 合約照片位置 */
-    .contract-slot{
-      margin: 18px auto 28px;
-      max-width: 920px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.03);
-      box-shadow: 0 14px 30px rgba(0,0,0,.45);
-    }
-    .contract-slot img{
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      display:block;
-    }
-    .contract-slot .note{
-      padding: 12px 14px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-    }
-    .contract-slot .note b{ color: var(--mint); }
-    .contract-slot .note span{ opacity:.8; font-size: .92rem; }
+/* 評論圖片 */
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px;
+}
 
-    .g-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px; }
-    .g-item{
-      background: rgba(255,255,255,.03);
-      border:1px solid var(--border);
-      border-radius:20px;
-      padding:24px;
-    }
-    .g-item i{ color:var(--gold); font-size:1.55rem; display:block; margin-bottom:10px; }
-    .g-item b{ display:block; margin-bottom:6px; font-size:1.05rem; }
-    .g-item p{ margin:0; opacity:.9; }
+.review-img{
+  grid-column:span 6;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  background:#fff;
+  border-radius:16px;
+}
 
-    /* 工程卡 */
-    .work-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:22px; }
-    .card{
-      background: rgba(255,255,255,.03);
-      border:1px solid var(--border);
-      border-radius:20px;
-      padding:28px;
-    }
-    .card h3{ margin:0 0 12px; color:var(--gold); }
-    .card p{ margin:0; opacity:.9; }
-
-    /* Reviews */
-    .reviews{
-      margin-top: 76px;
-      background: rgba(255,255,255,.02);
-      border-radius: 30px;
-      padding: 60px 0;
-    }
-    .reviews h2{ margin:0 0 18px; text-align:center; color:var(--gold); }
-
-    .rating-row{
-      max-width: 1100px;
-      margin: 0 auto 26px;
-      padding: 0 24px;
-      display:flex;
-      justify-content:center;
-    }
-    .rating-card{
-      width: min(720px, 100%);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.03);
-      box-shadow: 0 12px 26px rgba(0,0,0,.4);
-      padding: 16px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    /* 4.9 徽章（小而不搶戲） */
-    .rating-badge{
-      max-height:80px;
-      width:auto;
-      object-fit:contain;
-      display:block;
-      filter: saturate(1.02) contrast(1.02);
-    }
-
-    .review-grid{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-    /* ✅ 不裁切評論：改成 contain + auto */
-    .review-img{
-      grid-column: span 6;
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      background:#fff;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.16);
-      display:block;
-      box-shadow: 0 12px 26px rgba(0,0,0,.4);
-    }
-
-    /* CTA zone */
-    .cta-zone{ text-align:center; padding: 80px 0; }
-    .qr-box{
-      background:#fff; width:180px; height:180px;
-      margin: 22px auto 18px; padding:10px;
-      border-radius: 16px;
-    }
-    .qr-box img{ width:100%; height:100%; object-fit:contain; }
-    .cta-zone p{ margin: 10px 0; opacity:.9; }
-
-    footer{
-      text-align:center;
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-      font-size:14px;
-      opacity:.6;
-    }
-
-    /* Lightbox */
-    .lightbox{
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,.72);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding: 20px;
-      z-index: 2000;
-    }
-    .lightbox.open{ display:flex; }
-    .lightbox-inner{
-      width: min(980px, 100%);
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(7,26,25,.95);
-      box-shadow: 0 30px 80px rgba(0,0,0,.65);
-    }
-    .lightbox-img{
-      width:100%; height: min(70vh, 620px);
-      object-fit: contain;
-      background: #03100f;
-      display:block;
-    }
-    .lightbox-bar{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding: 12px 14px;
-      border-top: 1px solid rgba(255,255,255,.12);
-    }
-    .lb-title{ font-weight: 900; color: var(--gold); }
-    .lb-close{
-      background: transparent;
-      border: 1px solid rgba(255,255,255,.18);
-      color: var(--ink);
-      border-radius: 12px;
-      padding: 8px 10px;
-      cursor:pointer;
-    }
-    .lb-close:hover{ border-color: rgba(212,163,115,.55); }
-
-    /* Back to top */
-    .to-top{
-      position: fixed;
-      right: 16px; bottom: 16px;
-      width: 46px; height: 46px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(7,26,25,.75);
-      color: var(--ink);
-      display:flex; align-items:center; justify-content:center;
-      cursor:pointer;
-      opacity:0; pointer-events:none;
-      transition: opacity .18s ease, transform .18s ease;
-      z-index: 1500;
-    }
-    .to-top.show{ opacity:1; pointer-events:auto; transform: translateY(0); }
-    .to-top:hover{ border-color: rgba(212,163,115,.55); }
-
-    /* Mobile */
-    @media (max-width: 820px){
-      .hero{ padding: 70px 0 46px; }
-      .guarantee{ padding: 28px; }
-      .shot{ grid-column: span 12; }
-      .shot img{ height: 250px; }
-      .contract-slot img{ height: 240px; }
-
-      /* ✅ 手機評論：滿版 + 不強制高度 */
-      .review-img{ grid-column: span 12; height:auto; }
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      .btn, .shot{ transition:none; }
-      .btn.breath::before{ animation:none; }
-    }
-  </style>
+@media(max-width:820px){
+  .review-img{grid-column:span 12}
+  .rating-badge{max-height:110px}
+}
+</style>
 </head>
 
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand">星耀閣｜老屋翻修保障專家</div>
-      <div class="nav-line"><i class="fa-brands fa-line"></i> ID: @xing7838</div>
-    </div>
-  </nav>
 
-  <main class="container">
-    <section class="hero">
-      <h1>老屋翻修最怕<span class="highlight">做錯順序</span><br>翻修最貴的不是裝潢，是沒重做基礎</h1>
-      <p>房子最怕的是「表面很新，裡面老化」。星耀閣企業行以水電、防水、管路與工序規劃為核心，並用權益保障協議把界線寫清楚，讓翻修透明、正規、不話術。</p>
-      <a href="#contact" class="btn breath"><i class="fa-solid fa-calendar-check"></i> 立即預約：免費基礎工程規劃</a>
-    </section>
+<section class="container">
 
-    <!-- 工程實照 -->
-    <section>
-      <div class="section-title">
-        <h2>工程實照｜水電管路重整・浴室翻修・木作系統櫃</h2>
-        <p>把看不見的關鍵做對，住得久、用得安心</p>
-      </div>
+<h2 style="text-align:center;margin-top:60px;color:#d4a373">
+來自客戶的真實認證
+</h2>
 
-      <div class="gallery" id="gallery">
-        <figure class="shot" data-title="水電管路重新配置（重整施工）" data-src="images/plumbing_01.jpg">
-          <img src="images/plumbing_01.jpg" alt="水電管路重新配置施工照" loading="lazy" decoding="async">
-          <figcaption class="cap">
-            <div class="tag"><i class="fa-solid fa-water"></i> 水電管路重新配置</div>
-            <p>依現場動線與使用需求重新規劃給排水，提升維修性與降低滲漏風險。</p>
-          </figcaption>
-        </figure>
-
-        <figure class="shot" data-title="配管與線路整理（迴路規劃）" data-src="images/electric_01.jpg">
-          <img src="images/electric_01.jpg" alt="電路迴路配置與配管整理" loading="lazy" decoding="async">
-          <figcaption class="cap">
-            <div class="tag"><i class="fa-solid fa-bolt"></i> 電路迴路重整</div>
-            <p>依冷氣、廚房、高功率家電分迴路，提升負載穩定與用電安全。</p>
-          </figcaption>
-        </figure>
-
-        <figure class="shot" data-title="浴室翻修（完工完成面）" data-src="images/bathroom_01.jpg">
-          <img src="images/bathroom_01.jpg" alt="浴室翻修完工照" loading="lazy" decoding="async">
-          <figcaption class="cap">
-            <div class="tag"><i class="fa-solid fa-shower"></i> 浴室翻修</div>
-            <p>從基層到試水流程化施作，降低日後滲漏機率。</p>
-          </figcaption>
-        </figure>
-
-        <figure class="shot" data-title="浴室翻修（施工中／細節呈現）" data-src="images/bathroom_02.jpg">
-          <img src="images/bathroom_02.jpg" alt="浴室翻修第二角度照" loading="lazy" decoding="async">
-          <figcaption class="cap">
-            <div class="tag"><i class="fa-solid fa-layer-group"></i> 浴室翻修（施工中）</div>
-            <p>瓷磚收邊、對縫與平整度控制，強化完成面品質。</p>
-          </figcaption>
-        </figure>
-
-        <figure class="shot" data-title="木作系統櫃裝潢（收納櫃／電器櫃）" data-src="images/cabinet_01.jpg">
-          <img src="images/cabinet_01.jpg" alt="木作系統櫃裝潢實照" loading="lazy" decoding="async">
-          <figcaption class="cap">
-            <div class="tag"><i class="fa-solid fa-couch"></i> 木作系統櫃裝潢</div>
-            <p>客廳收納櫃、電器櫃、玄關櫃等，強化收納機能。</p>
-          </figcaption>
-        </figure>
-
-        <figure class="shot" data-title="木作系統櫃裝潢（衣櫃／展示櫃）" data-src="images/cabinet_02.jpg">
-          <img src="images/cabinet_02.jpg" alt="木作系統櫃第二組實照" loading="lazy" decoding="async">
-          <figcaption class="cap">
-            <div class="tag"><i class="fa-solid fa-box-archive"></i> 木作系統櫃（第二組）</div>
-            <p>衣櫃、展示櫃等，搭配收邊與燈光提升居家質感。</p>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- 權益保障 + 合約照片槽 -->
-    <section class="guarantee">
-      <h2>拒絕賭運氣：您的保障我們寫在合約裡</h2>
-
-      <div class="contract-slot">
-        <img src="images/contract_photo.jpg" alt="合約範例照片（請替換）" loading="lazy" decoding="async">
-        <div class="note">
-          <div>
-            <b><i class="fa-solid fa-shield-halved"></i> 合約範例</b>
-          </div>
-          <span>把權益寫清楚，工程才不靠猜</span>
-        </div>
-      </div>
-
-      <div class="g-grid">
-        <div class="g-item">
-          <i class="fa-solid fa-file-contract"></i>
-          <b>責任界線清楚</b>
-          <p>開工前釐清施作範圍與責任歸屬，工程變更採書面確認，降低爭議。</p>
-        </div>
-        <div class="g-item">
-          <i class="fa-solid fa-camera-retro"></i>
-          <b>關鍵工序拍照存證</b>
-          <p>水電配置、防水、基礎補強等重要流程記錄留存，讓施工可追溯、可查核。</p>
-        </div>
-        <div class="g-item">
-          <i class="fa-solid fa-user-shield"></i>
-          <b>流程化施作</b>
-          <p>以工序規劃避免返工與誤工，讓工期與費用更可控，不靠話術撐場面。</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 工程介紹 -->
-    <div class="section-title">
-      <h2>房子壽命取決於看不見的工程</h2>
-      <p>不是把表面弄漂亮，而是把基礎做對</p>
-    </div>
-
-    <div class="work-grid">
-      <div class="card">
-        <h3><i class="fa-solid fa-bolt"></i> 電線老化配置</h3>
-        <p>依現代家電負載規劃迴路與保護裝置配置，降低跳電與過載風險，強化用電安全。</p>
-      </div>
-      <div class="card">
-        <h3><i class="fa-solid fa-faucet-drip"></i> 水電管路重整</h3>
-        <p>給排水依使用動線與維修性規劃，避免日後漏水、阻塞與拆修成本飆升。</p>
-      </div>
-      <div class="card">
-        <h3><i class="fa-solid fa-helmet-safety"></i> 統包工序調度</h3>
-        <p>先基礎、再表面。把順序排對，能有效降低返工率與工期延誤風險。</p>
-      </div>
-    </div>
-
-    <!-- ✅ Google 評論：只顯示一次 4.9 + 4 張截圖 -->
-    <section class="reviews">
-      <h2>來自客戶的真實認證</h2>
-
-      <div class="rating-row">
-        <div class="rating-card">
-          <img src="images/google_rating_49.jpg" alt="Google 4.9 顆星總評" class="rating-badge" loading="lazy" decoding="async">
-        </div>
-      </div>
-
-      <div class="review-grid">
-        <img src="images/review_01.jpg" class="review-img" alt="Google 評論截圖 1" loading="lazy" decoding="async">
-        <img src="images/review_02.jpg" class="review-img" alt="Google 評論截圖 2" loading="lazy" decoding="async">
-        <img src="images/review_03.jpg" class="review-img" alt="Google 評論截圖 3" loading="lazy" decoding="async">
-        <img src="images/review_04.jpg" class="review-img" alt="Google 評論截圖 4" loading="lazy" decoding="async">
-      </div>
-    </section>
-
-    <!-- 聯絡 -->
-    <section id="contact" class="cta-zone">
-      <h2>老屋翻修前的重點是基礎工程規劃</h2>
-      <p>掃描或點擊按鈕，索取「老屋翻修權益保障範本」</p>
-
-      <div class="qr-box">
-        <img src="images/line_qr.png" alt="LINE 官方帳號 QR Code" loading="lazy" decoding="async">
-      </div>
-
-      <p style="font-weight: 900; color: var(--mint); margin: 10px 0 22px;">ID: @xing7838</p>
-
-      <a class="btn breath" href="https://line.me/R/ti/p/@xing7838">
-        <i class="fa-brands fa-line"></i> 點擊加 LINE 免費諮詢
-      </a>
-    </section>
-  </main>
-
-  <footer>
-    © 星耀閣企業行｜高雄老屋翻修・整合型水電統包專門店
-  </footer>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="圖片預覽">
-      <img class="lightbox-img" id="lightboxImg" alt="工程實照預覽">
-      <div class="lightbox-bar">
-        <div class="lb-title" id="lightboxTitle">預覽</div>
-        <button class="lb-close" id="lightboxClose"><i class="fa-solid fa-xmark"></i> 關閉</button>
-      </div>
-    </div>
+<!-- Google 信任條 -->
+<div class="rating-row">
+  <div class="rating-card">
+    <img src="images/google_rating_49.jpg"
+         alt="Google 4.9 顆星總評"
+         class="rating-badge">
   </div>
+</div>
 
-  <button class="to-top" id="toTop" aria-label="回到頁首">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
+<!-- 評論截圖 -->
+<div class="review-grid">
+  <img src="images/review_01.jpg" class="review-img">
+  <img src="images/review_02.jpg" class="review-img">
+  <img src="images/review_03.jpg" class="review-img">
+  <img src="images/review_04.jpg" class="review-img">
+</div>
 
-  <script>
-    // 圖庫點擊放大
-    const gallery = document.getElementById('gallery');
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    const lbTitle = document.getElementById('lightboxTitle');
-    const lbClose = document.getElementById('lightboxClose');
+</section>
 
-    function openLightbox(src, title){
-      lbImg.src = src;
-      lbTitle.textContent = title || '工程實照預覽';
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox(){
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      lbImg.src = '';
-    }
-
-    gallery?.addEventListener('click', (e) => {
-      const shot = e.target.closest('.shot');
-      if(!shot) return;
-      openLightbox(shot.dataset.src, shot.dataset.title);
-    });
-
-    lbClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-      if(e.target === lightbox) closeLightbox();
-    });
-    window.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape') closeLightbox();
-    });
-
-    // 回到頁首按鈕
-    const toTop = document.getElementById('toTop');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 600) toTop.classList.add('show');
-      else toTop.classList.remove('show');
-    });
-    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  </script>
 </body>
 </html>
