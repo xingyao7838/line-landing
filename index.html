@@ -201,20 +201,44 @@
       display:flex;
       justify-content:center;
     }
+
+    /* ✅✅✅ 這段是重點：Google 信任條（更大 + 微光） */
     .rating-card{
-      width: min(720px, 100%);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.03);
-      box-shadow: 0 12px 26px rgba(0,0,0,.4);
-      padding: 16px;
+      width: min(900px, 100%);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:
+        0 12px 26px rgba(0,0,0,.45),
+        inset 0 0 20px rgba(255,255,255,.05);
+      padding: 18px 30px;
       display:flex;
       align-items:center;
       justify-content:center;
+      position: relative;
+      overflow: hidden;
     }
-    /* 4.9 徽章（小而不搶戲） */
+    .rating-card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(212,163,115,.25), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(127,185,178,.18), transparent 55%);
+      filter: blur(18px);
+      opacity:.55;
+      z-index:0;
+      animation: ratingGlow 3s ease-in-out infinite;
+    }
+    @keyframes ratingGlow{
+      0%{ transform: scale(.95); opacity:.35; }
+      50%{ transform: scale(1.05); opacity:.75; }
+      100%{ transform: scale(.95); opacity:.35; }
+    }
     .rating-badge{
-      max-height:80px;
+      position: relative;
+      z-index:1;
+      max-height: 140px;
       width:auto;
       object-fit:contain;
       display:block;
@@ -229,7 +253,7 @@
       grid-template-columns: repeat(12, 1fr);
       gap: 16px;
     }
-    /* ✅ 不裁切評論：改成 contain + auto */
+    /* ✅ 不裁切評論：contain + auto */
     .review-img{
       grid-column: span 6;
       width:100%;
@@ -329,6 +353,10 @@
 
       /* ✅ 手機評論：滿版 + 不強制高度 */
       .review-img{ grid-column: span 12; height:auto; }
+
+      /* ✅ 手機信任條：不要太大 */
+      .rating-badge{ max-height: 110px; }
+      .rating-card{ padding: 16px 18px; }
     }
 
     /* Reduced motion */
@@ -336,6 +364,7 @@
       html{ scroll-behavior:auto; }
       .btn, .shot{ transition:none; }
       .btn.breath::before{ animation:none; }
+      .rating-card::before{ animation:none; }
     }
   </style>
 </head>
