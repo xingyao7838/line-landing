@@ -1,662 +1,122 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-415072702">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-415072702');
-</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>星耀閣企業行｜老屋翻修・整合型水電統包</title>
-  <meta name="description" content="星耀閣企業行｜專營老屋翻修・新穎技術整合型水電統包。主動式階段進度回報，品質可視化，快速交付。" />
+  <title>星耀閣｜高雄老屋翻修・基礎工程與合約保障專門店</title>
   <style>
-    :root{
-      --tiffany:#7fb9b2;
-      --mint:#9fd3cc;
-      --deep:#071a19;
-      --ink:#e9fbf8;
-      --muted:rgba(233,251,248,.78);
-      --muted2:rgba(233,251,248,.60);
-      --gold:#d4a373;
-      --gold2:#b97a4b;
-      --border:rgba(255,255,255,.12);
-      --shadow:0 20px 70px rgba(0,0,0,.50);
+    :root {
+      --deep: #071a19; --gold: #d4a373; --gold2: #b97a4b; --mint: #7fb9b2; --ink: #e9fbf8; --border: rgba(255, 255, 255, .15);
     }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Noto Sans TC", sans-serif; background: var(--deep); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    
+    /* 導覽列 */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(7, 26, 25, 0.9); backdrop-filter: blur(10px); padding: 15px 0; border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-weight: 900; color: var(--mint); }
 
-    html,body{
-      margin:0;padding:0;
-      font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
-      background:var(--deep);
-      color:var(--ink);
-    }
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%}
-    .container{max-width:1120px;margin:0 auto;padding:0 16px}
-    section{padding:64px 0}
-    h1,h2,h3{margin:0}
-    ul{margin:0}
+    /* 首屏強化：直接對接廣告 */
+    .hero { padding: 100px 0 60px; text-align: center; }
+    .hero h1 { font-size: clamp(28px, 5vw, 46px); margin: 0 0 20px; line-height: 1.3; }
+    .highlight { color: var(--gold); border-bottom: 2px solid var(--gold); }
+    .lead { font-size: 1.15rem; color: rgba(233,251,248,0.8); max-width: 850px; margin: 0 auto 40px; }
 
-    body{
-      background:
-        radial-gradient(1200px 700px at 18% 12%, rgba(127,185,178,.30), transparent 55%),
-        radial-gradient(900px 600px at 82% 18%, rgba(212,163,115,.22), transparent 55%),
-        radial-gradient(900px 650px at 70% 86%, rgba(159,211,204,.14), transparent 55%),
-        linear-gradient(180deg, #061716 0%, #071a19 45%, #051312 100%);
-      position:relative;
-      overflow-x:hidden;
-    }
-    body::before{
-      content:"";
-      position:fixed;
-      inset:-2px;
-      background-image:url("./images/bg-lines.svg");
-      background-size:cover;
-      background-position:center;
-      opacity:.16;
-      pointer-events:none;
-      filter:contrast(1.1) saturate(1.1);
-    }
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:linear-gradient(90deg, rgba(255,255,255,.05), transparent 30%, transparent 70%, rgba(255,255,255,.03));
-      opacity:.30;
-      pointer-events:none;
-    }
+    /* 【核心區塊】雙方權益保障協議 */
+    .guarantee { background: linear-gradient(180deg, rgba(212,163,115,0.1), transparent); border: 2px solid var(--gold); border-radius: 30px; padding: 50px; margin-bottom: 80px; position: relative; overflow: hidden; }
+    .guarantee::before { content: "TRUST"; position: absolute; right: -20px; top: -20px; font-size: 120px; font-weight: 900; color: rgba(212,163,115,0.05); }
+    .guarantee h2 { font-size: 2rem; color: var(--gold); margin-top: 0; }
+    .guarantee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px; }
+    .guarantee-item b { color: var(--mint); font-size: 1.2rem; display: block; margin-bottom: 10px; }
+    .guarantee-item p { font-size: 0.95rem; opacity: 0.85; }
 
-    .reveal{opacity:0;transform:translateY(12px);transition:.65s cubic-bezier(.2,.8,.2,1)}
-    .reveal.on{opacity:1;transform:none}
+    /* 基礎工程卡片 */
+    .section-title { text-align: center; margin-bottom: 50px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+    .card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 35px; border-radius: 20px; transition: 0.3s; }
+    .card:hover { transform: translateY(-10px); border-color: var(--mint); }
+    .card h3 { color: var(--gold); margin-bottom: 15px; font-size: 1.3rem; }
 
-    .nav{
-      position:sticky;top:0;z-index:50;
-      background:rgba(7,26,25,.55);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand-name{font-weight:900;letter-spacing:.6px}
-    .nav-links{display:none;gap:22px;font-size:14px;color:var(--muted)}
-    .nav-links a:hover{color:var(--ink)}
-    @media(min-width:768px){.nav-links{display:flex}}
+    /* 底部 CTA */
+    .cta-fixed { text-align: center; padding: 60px 0; background: rgba(255,255,255,0.02); }
+    .btn { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #000; padding: 20px 50px; border-radius: 50px; font-weight: 900; text-decoration: none; font-size: 1.2rem; box-shadow: 0 15px 30px rgba(212,163,115,0.3); animation: pulse 2s infinite; }
 
-    .cta{
-      display:inline-flex;align-items:center;gap:8px;
-      background:linear-gradient(180deg, var(--gold), var(--gold2));
-      color:#051312;
-      padding:10px 16px;border-radius:14px;
-      font-weight:950;
-      box-shadow:0 18px 44px rgba(212,163,115,.22);
-      border:1px solid rgba(255,255,255,.12);
-    }
-    .cta:hover{filter:brightness(1.05)}
-    .ghost{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 14px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      font-weight:900;
-    }
-    .ghost:hover{background:rgba(255,255,255,.10)}
-    .pill{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;border-radius:999px;
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-      font-weight:900;
-    }
-    .pill b{color:var(--gold)}
-
-    .hero{padding:92px 0 56px}
-    .eyebrow{
-      font-size:12px;letter-spacing:.22em;text-transform:uppercase;
-      color:rgba(233,251,248,.7)
-    }
-    h1{
-      margin-top:10px;
-      font-size:52px;line-height:1.12;
-      letter-spacing:-.02em;
-      max-width:980px;
-    }
-    .lead{
-      margin-top:14px;
-      max-width:900px;
-      font-size:18px;
-      color:var(--muted);
-      line-height:1.75;
-    }
-    .lead strong{
-      color:#061716;
-      background:linear-gradient(180deg, rgba(127,185,178,1), rgba(159,211,204,1));
-      padding:2px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:0 10px 26px rgba(127,185,178,.18);
-      white-space:nowrap;
-      display:inline-block;
-      margin:4px 6px 0 0;
-      font-weight:950;
-    }
-    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-    .chip{
-      border:1px solid rgba(255,255,255,.14);
-      color:rgba(233,251,248,.86);
-      background:rgba(255,255,255,.06);
-      padding:7px 10px;border-radius:999px;font-size:12px;
-    }
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-
-    .grid{display:grid;gap:18px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    @media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:620px){.grid-3,.grid-2{grid-template-columns:1fr}}
-
-    .card{
-      border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      border-radius:20px;
-      padding:20px;
-      box-shadow:0 14px 44px rgba(0,0,0,.28);
-    }
-    .card h3{font-size:18px;font-weight:950}
-    .card p{color:var(--muted);margin:10px 0 0;line-height:1.75}
-    .card ul{margin-top:12px;padding-left:18px;color:var(--muted);line-height:1.85}
-
-    .kpi{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .kpi span{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:14px;
-      background:rgba(127,185,178,.10);
-      border:1px solid rgba(127,185,178,.22);
-      color:rgba(233,251,248,.92);
-      font-size:12px;font-weight:900;
-    }
-    .kpi i{font-style:normal;color:var(--gold)}
-    .accent{
-      margin-top:14px;
-      padding:14px 16px;
-      border-radius:18px;
-      background:linear-gradient(180deg, rgba(212,163,115,.18), rgba(212,163,115,.08));
-      border:1px solid rgba(212,163,115,.28);
-      color:rgba(233,251,248,.92);
-      line-height:1.8;
-      font-weight:900;
-    }
-    .accent b{color:var(--gold)}
-
-    #reviews{padding:56px 0}
-    .reviews-wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:18px;align-items:center}
-    @media(max-width:900px){.reviews-wrap{grid-template-columns:1fr}}
-    .badge{
-      background:linear-gradient(180deg, var(--gold), var(--gold2));
-      color:#051312;font-weight:950;font-size:12px;padding:7px 10px;border-radius:999px;letter-spacing:.08em;white-space:nowrap
-    }
-    .headline{font-size:28px;font-weight:950;line-height:1.18}
-    .subtext{color:var(--muted);margin-top:8px;line-height:1.8}
-    .reviews-card{
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      border-radius:22px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .reviews-card::after{
-      content:"";position:absolute;inset:0;
-      background:radial-gradient(600px 240px at 30% 10%, rgba(127,185,178,.18), transparent 60%);
-      pointer-events:none;
-    }
-
-    .svc{
-      border:1px solid rgba(255,255,255,.12);
-      background:linear-gradient(180deg, rgba(15,46,43,.62), rgba(15,46,43,.34));
-      border-radius:20px;
-      padding:20px;
-      box-shadow:0 12px 44px rgba(0,0,0,.25);
-    }
-    .svc h3{font-size:16px;font-weight:950}
-    .svc ul{margin-top:10px;padding-left:18px;color:var(--muted);line-height:1.85}
-
-    #process .step{
-      border:1px solid rgba(159,211,204,.18);
-      background:linear-gradient(180deg, rgba(159,211,204,.10), rgba(255,255,255,.05));
-      border-radius:18px;
-      padding:16px;
-      color:var(--muted);
-      line-height:1.8;
-      font-weight:800;
-    }
-    .step b{color:var(--mint)}
-    .step .num{
-      display:inline-block;width:28px;height:28px;border-radius:10px;margin-right:10px;
-      background:rgba(127,185,178,.18);
-      border:1px solid rgba(127,185,178,.28);
-      color:var(--ink);
-      text-align:center;line-height:28px;font-weight:950
-    }
-
-    .case{position:relative;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);cursor:pointer}
-    .case img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .5s ease}
-    .case:hover img{transform:scale(1.05)}
-    .case-info{position:absolute;left:0;right:0;bottom:0;padding:12px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.72));color:#fff}
-    .tag{display:inline-block;font-size:10px;padding:3px 8px;border-radius:999px;background:rgba(127,185,178,.95);color:#051312;margin-top:4px;font-weight:950}
-
-    .panel{
-      border:1px solid rgba(255,255,255,.12);
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.05));
-      border-radius:22px;
-      padding:18px;
-      box-shadow:0 14px 44px rgba(0,0,0,.30);
-    }
-    .qr{
-      display:flex;align-items:center;justify-content:center;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:16px;
-      aspect-ratio:1/1;
-      overflow:hidden;
-    }
-    .contact-list p{margin:6px 0;color:var(--muted)}
-    .contact-list h3{margin:0 0 8px;font-size:18px;font-weight:950}
-
-    footer{
-      font-size:12px;
-      color:rgba(233,251,248,.62);
-      display:flex;justify-content:space-between;gap:12px;
-      padding-top:20px;border-top:1px solid rgba(255,255,255,.08);
-      margin-top:18px;
-    }
-
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;padding:16px;z-index:60}
-    .lightbox.open{display:flex}
-    .lightbox-inner{max-width:1100px;width:100%;transform:scale(.96);opacity:0;transition:.25s ease}
-    .lightbox.open .lightbox-inner{transform:scale(1);opacity:1}
-    .lightbox img{width:100%;height:auto;border:1px solid rgba(255,255,255,.25);border-radius:12px}
-    .close{position:absolute;top:14px;right:14px;background:#fff;color:#000;border:none;border-radius:999px;padding:6px 10px;cursor:pointer}
-  
-<style>
-.risk-zone{
-background:linear-gradient(180deg, rgba(212,163,115,.25), rgba(212,163,115,.08));
-border-top:1px solid rgba(212,163,115,.35);
-border-bottom:1px solid rgba(212,163,115,.35);
-}
-
-.system-zone{
-background:linear-gradient(180deg, rgba(120,150,170,.18), rgba(120,150,170,.05));
-border-top:1px solid rgba(120,150,170,.25);
-border-bottom:1px solid rgba(120,150,170,.25);
-}
-
-.assurance-zone{
-background:linear-gradient(180deg, rgba(127,185,178,.28), rgba(127,185,178,.08));
-border-top:1px solid rgba(127,185,178,.35);
-border-bottom:1px solid rgba(127,185,178,.35);
-}
-</style>
-
-</style>
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212,163,115,0.4); } 70% { box-shadow: 0 0 0 20px rgba(212,163,115,0); } 100% { box-shadow: 0 0 0 0 rgba(212,163,115,0); } }
+  </style>
 </head>
 <body>
+
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="brand">
-        <img src="./images/logo.png" alt="星耀閣 LOGO" style="width:36px;height:36px;border-radius:10px;object-fit:contain;background:rgba(255,255,255,.92);padding:4px;box-shadow:0 1px 12px rgba(0,0,0,.35)">
-        <div class="brand-name">星耀閣企業行</div>
-      </div>
-      <div class="nav-links">
-        <a href="#services">服務項目</a>
-        <a href="#cases">工程案例</a>
-        <a href="#process">施作流程</a>
-        <a href="#contact">聯絡我們</a>
-      </div>
-      <a class="cta" href="#contact">立即諮詢 ▸</a>
+      <div class="brand">星耀閣｜高雄老屋翻修保障專家</div>
+      <div style="font-size: 14px; font-weight: bold;">LINE: @xing7838</div>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="container">
-      <div class="eyebrow reveal">XING YAO CONSTRUCTION · Kaohsiung</div>
-      <h1 class="reveal">選錯施工團隊，翻修會更貴</h1>
-      
-<p class="lead reveal">
-翻修最常見的問題，不是做得不好，而是<strong>一開始就做錯順序</strong>。<br/>
-我們透過<strong>工程雙方權益保障機制</strong>，讓施工範圍、品質標準與責任界線在開始前就被釐清。
-<br/>
-<strong>避免拆除重做</strong>
-<strong>避免預算失控</strong>
-<strong>避免工程失序</strong>
-</p>
-
-
-      <div class="chips reveal">
-        <span class="chip">配電盤負載計算 · 匯流排整線</span>
-        <span class="chip">全戶配線/專迴 · 110/220V 規劃</span>
-        <span class="chip">給/排水更新 · 24h 試水</span>
-        <span class="chip">防水五道 · 工法收邊</span>
-        <span class="chip">完工照/驗收紀錄可提供</span>
-      </div>
-
-      <div class="hero-actions reveal">
-        <a class="cta" href="#cases">看案例（可放大）</a>
-        <a class="ghost" href="https://line.me/R/ti/p/@xing7838" target="_blank" rel="noreferrer">加 LINE 立即諮詢</a>
-        <span class="pill">回覆快 <b>LINE</b>：@xing7838</span>
-      </div>
-    </div>
-  </section>
-
-  
-<section id="risk">
-  <div class="container">
-    <h2 class="reveal" style="font-size:28px;font-weight:950;color:var(--gold)">翻修真正昂貴的，不是施工</h2>
-    <p class="reveal" style="margin-top:10px;line-height:1.85;color:var(--muted);max-width:920px">
-      而是做錯順序所帶來的重工與延誤。
-    </p>
-
-    <div class="grid grid-3" style="margin-top:16px">
-      <div class="card reveal">
-        <h3>未重整基礎系統</h3>
-        <p>裝潢完成後才發現水電問題，需拆除重做。</p>
-      </div>
-      <div class="card reveal">
-        <h3>防水與泥作順序錯誤</h3>
-        <p>導致後續滲漏與結構問題。</p>
-      </div>
-      <div class="card reveal">
-        <h3>責任界線模糊</h3>
-        <p>發生落差時難以釐清與處理。</p>
-      </div>
-    </div>
-
-    <div class="accent reveal" style="margin-top:18px">
-      這些問題往往比施工本身更昂貴。
-    </div>
-  </div>
-</section>
-
-
-<section class="system-zone">
-<div class="container">
-<h2 class="reveal" style="font-size:28px;font-weight:950">翻修三大盲區</h2>
-
-<div class="grid grid-3" style="margin-top:20px">
-
-<div class="card reveal">
-<h3>房子的血管系統</h3>
-<p>水電看不見、摸不到，卻是牽動整體居住機能的核心。</p>
-<ul>
-<li>電線錯誤配置可能引發過載風險</li>
-<li>水管設計不良可能導致滲漏</li>
-<li>材料差異影響長期穩定</li>
-</ul>
-</div>
-
-<div class="card reveal">
-<h3>合約保障的重要性</h3>
-<p>若未事前約定施工範圍與品質標準，業主可能難以判斷問題是否需改正。</p>
-<ul>
-<li>避免責任模糊</li>
-<li>降低資訊落差</li>
-<li>讓問題有依據處理</li>
-</ul>
-</div>
-
-<div class="card reveal">
-<h3>統包規劃的價值</h3>
-<p>缺乏整體規劃可能導致施工順序錯誤與誤工。</p>
-<ul>
-<li>協調工種</li>
-<li>降低銜接風險</li>
-<li>避免重工</li>
-</ul>
-</div>
-
-</div>
-</div>
-</section>
-
-<section id="reviews">
-    <div class="container">
-      <div class="reviews-wrap">
-        <div class="reveal">
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <span class="badge">Google 4.9★</span>
-            <div>
-              <div class="headline">優質評論看的見，歷程安心有保障</div>
-              <div class="subtext">
-                口碑不是一句話，是一整段「可追溯的施工歷程」。
-                我們把工序、材料、驗收點整理清楚，讓你放心交給我們。
-              </div>
-            </div>
-          </div>
-
-          <div class="kpi" style="margin-top:14px">
-            <span><i>✓</i> 主動回報進度</span>
-            <span><i>✓</i> 施工照/影片紀錄</span>
-            <span><i>✓</i> 驗收點清單化</span>
-            <span><i>✓</i> 變更單即時簽認</span>
-          </div>
-
-          <div class="accent">
-            <b>你不用天天到現場</b>，也能清楚知道「今天做到哪、下一步做什麼、何時可驗收」。
-            我們把交付做成制度：<b>透明</b>、<b>可追蹤</b>、<b>好驗收</b>。
-          </div>
-        </div>
-
-        <div class="reviews-card reveal">
-          <img src="./images/reviews-banner.png" alt="Google 評論截圖" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="highlights">
-    <div class="container">
-      <h2 class="reveal" style="font-size:28px;font-weight:950">讓客人放心的，是「制度」不是運氣</h2>
-      <p class="reveal" style="margin-top:10px;max-width:920px;line-height:1.85;color:var(--muted)">
-        老屋翻修最怕資訊不透明與驗收無依據。我們用工程邏輯把流程做成你看得懂的版本，讓你每一步都能安心點頭。
+  <main class="container">
+    <!-- Hero: 回應所有廣告標題 -->
+    <section class="hero">
+      <h1>翻修房子與其修補<br><span class="highlight">不如重新配置基礎工程</span></h1>
+      <p class="lead">
+        90% 人忽略的「房子血管」是水電。星耀閣專注於看不見的工程，拒絕亂槍打鳥的賭運氣施作，我們用<strong>「雙方權益保障協議」</strong>為您的家負責。
       </p>
+      <a href="https://line.me" class="btn">索取保障協議範本與免費規劃</a>
+    </section>
 
-      <div class="grid grid-3" style="margin-top:16px">
-        <div class="card reveal">
-          <h3>進度回報更細</h3>
-          <p>不等你問，我們主動回報。每個階段用照片/影片標註重點，隔空也能掌握現場。</p>
-          <ul>
-            <li>每日/階段回報（依工程量）</li>
-            <li>關鍵節點提醒：封管、試水、貼磚、收邊</li>
-            <li>驗收點對照清單化</li>
-          </ul>
+    <!-- 核心價值：保障協議 -->
+    <section class="guarantee">
+      <h2>老屋翻修，不該是一場博弈</h2>
+      <p>我們理解客人的不安。因此，星耀閣提供業界罕見的<strong>權益保障協議</strong>，將口頭承諾化為白紙黑字：</p>
+      <div class="guarantee-grid">
+        <div class="guarantee-item">
+          <b>重大疏失補償機制</b>
+          <p>經第三方事實證明之工程重大疏失，我們承諾無條件修復並提供明確的賠償方案，不讓您承擔風險。</p>
         </div>
-        <div class="card reveal">
-          <h3>高標準施作規格</h3>
-          <p>不是「做到能用」，而是「做到耐久、好維護、好驗收」。</p>
-          <ul>
-            <li>專迴/負載計算，降低跳電風險</li>
-            <li>防水五道重點加強，收邊講究</li>
-            <li>管線規劃可視化，維修更好找</li>
-          </ul>
+        <div class="guarantee-item">
+          <b>階段性進度可視化</b>
+          <p>每日主動傳送 LINE 進度圖文。隱蔽工程（水電、防水）全程縮時紀錄或拍照存證，驗收不再憑感覺。</p>
         </div>
-        <div class="card reveal">
-          <h3>透明與好溝通</h3>
-          <p>變更、加項、材料選型都留紀錄，避免口頭誤差，讓交付更穩。</p>
-          <ul>
-            <li>變更單即時簽認</li>
-            <li>材料型號/來源清楚</li>
-            <li>里程碑式交付，進度更穩</li>
-          </ul>
+        <div class="guarantee-item">
+          <b>正規施工不話術</b>
+          <p>嚴格遵守標準工序。浴室防水失敗通常不是防水問題，是工序錯誤。我們不怕你問，只怕你選錯順序。</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  
-<section id="why">
-  <div class="container">
-    <h2 class="reveal" style="font-size:28px;font-weight:950">為什麼選擇星耀閣？</h2>
+    <!-- 廣告內容延伸區 -->
+    <section>
+      <div class="section-title">
+        <h2>為什麼老屋翻修要重做基礎？</h2>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>老屋最大風險：電線老化</h3>
+          <p>電線的使用壽命約 20 年。我們主張重新配置，而非單純更換，確保大功率電器時代的用電安全。</p>
+        </div>
+        <div class="card">
+          <h3>浴室防水：細節決定壽命</h3>
+          <p>防水失敗往往源於泥作基礎不實。星耀閣堅持從打底開始嚴格控管，讓您的浴室再戰 20 年。</p>
+        </div>
+        <div class="card">
+          <h3>專業統包：降低誤工風險</h3>
+          <p>翻修需要統包嗎？由專業統包統一規劃工序，能有效避免多工種銜接不靈帶來的隱藏成本。</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <div class="grid grid-3" style="margin-top:16px">
-      <div class="card reveal">
-        <h3>事前協議</h3>
-        <p>施工前即釐清範圍與責任。</p>
-      </div>
-      <div class="card reveal">
-        <h3>施工透明</h3>
-        <p>每日或階段進度回報。</p>
-      </div>
-      <div class="card reveal">
-        <h3>節點驗收</h3>
-        <p>每一步皆可確認與追蹤。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
+  <section class="cta-fixed">
     <div class="container">
-      <h2 class="reveal" style="font-size:28px;font-weight:950">服務項目</h2>
-      <p class="reveal" style="margin-top:10px;line-height:1.85;color:var(--muted)">單項可做，整合更省心。適合想要「一次弄好」的屋主與商辦。</p>
-
-      <div class="grid grid-3" style="margin-top:16px">
-        <div class="svc reveal"><h3>全戶配線/配電盤整新</h3><ul><li>匯流排擴增</li><li>迴路重整</li><li>負載計算</li><li>110/220V 專迴</li></ul></div>
-        <div class="svc reveal"><h3>專迴/大電流需求</h3><ul><li>廚房/熱水器</li><li>冷氣多台</li><li>烘衣機/烤箱</li><li>EV 充電預留</li></ul></div>
-        <div class="svc reveal"><h3>給/排水管路配置</h3><ul><li>主幹管更新</li><li>管線改點</li><li>材質選型</li><li>24h 試水</li></ul></div>
-        <div class="svc reveal"><h3>防水五道工法</h3><ul><li>滲透型底劑</li><li>中層/面層</li><li>收邊止水</li><li>24h 試水</li></ul></div>
-        <div class="svc reveal"><h3>浴室翻修/泥作</h3><ul><li>貼磚雷射水平</li><li>管位改點</li><li>設備安裝</li><li>填縫收邊</li></ul></div>
-        <div class="svc reveal"><h3>現場勘驗/估價</h3><ul><li>載重/動線評估</li><li>材質選型</li><li>風險告知</li><li>報價單與變更單</li></ul></div>
-      </div>
+      <h2>想了解您的房子如何正確配置基礎工程？</h2>
+      <p>我們提供高雄地區免費場勘與基礎規劃建議</p>
+      <a href="https://line.me" class="btn">立即 LINE 諮詢</a>
     </div>
   </section>
 
-  <section id="process">
-    <div class="container">
-      <h2 class="reveal" style="font-size:28px;font-weight:950">施作流程（看得懂、驗得出）</h2>
-      <p class="reveal" style="margin-top:10px;line-height:1.85;max-width:920px;color:var(--muted)">
-        你會清楚知道每個階段的「做什麼、驗什麼、何時交付」。這樣的流程，才會真正安心。
-      </p>
+  <footer style="padding: 40px 0; text-align: center; font-size: 14px; opacity: 0.5;">
+    © 星耀閣企業行｜高雄老屋翻修・整合型水電統包專門店
+  </footer>
 
-      <div class="grid grid-3" style="margin-top:16px">
-        <div class="step reveal"><span class="num">1</span><b>需求確認</b>：LINE 傳照片/平面圖，先抓風險點與方向。</div>
-        <div class="step reveal"><span class="num">2</span><b>現勘與報價</b>：動線/載重/管線評估，報價與工期清楚列出。</div>
-        <div class="step reveal"><span class="num">3</span><b>施工與回報</b>：主動式階段回報，提供照片/影片與節點說明。</div>
-        <div class="step reveal"><span class="num">4</span><b>測試驗收</b>：試水/試壓、迴路測試、重點收邊檢查。</div>
-        <div class="step reveal"><span class="num">5</span><b>交付保固</b>：交付驗收紀錄與保固說明，後續維護更好安排。</div>
-        <div class="step reveal"><span class="num">6</span><b>加值服務</b>：完工照整理、驗收清單化，方便你留存。</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="cases">
-    <div class="container">
-      <h2 class="reveal" style="font-size:28px;font-weight:950">工程案例（點擊可放大）</h2>
-      <p class="reveal" style="margin-top:10px;line-height:1.85;color:var(--muted)">照片會說話，細節更能驗收。</p>
-
-      <div class="grid grid-3" style="margin-top:16px">
-        <div class="case reveal" data-title="全戶配線更新 + 配電盤整新" data-src="./images/case-01.jpg"><img src="./images/case-01.jpg" alt="全戶配線更新 + 配電盤整新"/><div class="case-info"><div>全戶配線更新 + 配電盤整新</div><span class="tag">電氣/匯流排</span></div></div>
-        <div class="case reveal" data-title="浴室翻修：防水五道 + 貼磚" data-src="./images/case-02.jpg"><img src="./images/case-02.jpg" alt="浴室翻修：防水五道 + 貼磚"/><div class="case-info"><div>浴室翻修：防水五道 + 貼磚</div><span class="tag">防水/泥作</span></div></div>
-        <div class="case reveal" data-title="全屋軟水系統配置" data-src="./images/case-03.jpg"><img src="./images/case-03.jpg" alt="全屋軟水系統配置"/><div class="case-info"><div>全屋軟水系統配置</div><span class="tag">淨水/軟水</span></div></div>
-        <div class="case reveal" data-title="全屋進/排水管/迴水系統規劃" data-src="./images/case-04.jpg"><img src="./images/case-04.jpg" alt="全屋進/排水管/迴水系統規劃"/><div class="case-info"><div>全屋進/排水管/迴水系統規劃</div><span class="tag">給排水</span></div></div>
-        <div class="case reveal" data-title="老屋翻新整合統包" data-src="./images/case-05.jpg"><img src="./images/case-05.jpg" alt="老屋翻新整合統包"/><div class="case-info"><div>老屋翻新整合統包</div><span class="tag">統包</span></div></div>
-        <div class="case reveal" data-title="浴室改造特殊磁磚貼附" data-src="./images/case-06.jpg"><img src="./images/case-06.jpg" alt="浴室改造特殊磁磚貼附"/><div class="case-info"><div>浴室改造特殊磁磚貼附</div><span class="tag">特殊泥作</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <div class="grid grid-2">
-        <div class="reveal">
-          <h2 style="font-size:28px;font-weight:950">想快速知道怎麼做、要花多少？</h2>
-          <p style="margin-top:10px;line-height:1.85;color:var(--muted)">
-            直接加 LINE 送照片/需求，我會用工程角度幫你抓風險點、抓預算區間，並告訴你最佳做法。
-          </p>
-          <div class="kpi" style="margin-top:14px">
-            <span><i>✓</i> 先看圖初估</span>
-            <span><i>✓</i> 風險點先說清楚</span>
-            <span><i>✓</i> 工期與驗收點列出</span>
-          </div>
-
-          <div class="hero-actions" style="margin-top:18px">
-            <a class="cta" href="https://line.me/R/ti/p/@xing7838" target="_blank" rel="noreferrer">官方 LINE：@xing7838</a>
-            <a class="ghost" href="mailto:charmdog074@gmail.com">寄信：charmdog074@gmail.com</a>
-          </div>
-
-          <div class="accent" style="margin-top:18px">
-            <b>你只要把需求說清楚</b>，剩下的我來規劃統籌。
-            施工過程每一步我會<b>主動回報</b>，讓你安心又省時間。
-          </div>
-        </div>
-
-        <div class="panel reveal">
-          <div class="grid grid-2" style="gap:16px;align-items:start">
-            <div class="qr"><img src="./images/line-qr.png" alt="LINE QR" style="width:100%;height:100%;object-fit:contain;padding:12px"></div>
-            <div class="contact-list">
-              <h3>聯絡資訊</h3>
-              <p>品牌：星耀閣企業行</p>
-              <p>服務：高雄/屏東/台南（其他地區另議）</p>
-              <p>信箱：charmdog074@gmail.com</p>
-              <p>電話：0952738168</p>
-              <p>LINE：@xing7838</p>
-              <p style="color:var(--muted2)">* 可代客拍攝完工照並提供驗收紀錄</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel reveal" style="margin-top:18px">
-        <b style="color:var(--mint);font-weight:950">提醒事項</b>
-        <ul style="margin-top:10px;padding-left:18px;color:var(--muted);line-height:1.85">
-          <li>本網站所示內容為示意，實際報價依現場勘驗與圖面確認為準。</li>
-          <li>保固最長 2 年（依項目/耗材性品除外；天災、人為、第三方施工不在保固範圍）。</li>
-        </ul>
-      </div>
-
-      <footer class="reveal">
-        <div>© <span id="year"></span> 星耀閣企業行. All rights reserved.</div>
-        <div>設計與前端：GPT‑5</div>
-      </footer>
-    </div>
-  </section>
-
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-inner">
-      <button class="close" id="closeBtn">✕</button>
-      <img id="lightboxImg" alt="case" src="" />
-      <div id="lightboxCap" style="margin-top:8px;font-size:14px;color:rgba(233,251,248,.9)"></div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const io = new IntersectionObserver((es)=>{
-      es.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('on');
-          io.unobserve(e.target);
-        }
-      });
-    },{threshold:.22});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-    const lb = document.getElementById('lightbox');
-    const img = document.getElementById('lightboxImg');
-    const cap = document.getElementById('lightboxCap');
-    document.querySelectorAll('.case').forEach(card=>{
-      card.addEventListener('click',()=>{
-        img.src = card.getAttribute('data-src');
-        cap.textContent = card.getAttribute('data-title');
-        lb.classList.add('open');
-      });
-    });
-    document.getElementById('closeBtn').addEventListener('click',()=>lb.classList.remove('open'));
-    lb.addEventListener('click',(e)=>{ if(e.target===lb){ lb.classList.remove('open'); } });
-  </script>
 </body>
 </html>
